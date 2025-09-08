@@ -1,4 +1,4 @@
-Để deploy app HTML/CSS/JS đơn giản này lên cloud và có URL online, bạn có nhiều cách. Dưới đây là 3 cách dễ nhất:
+
 
 ---
 
@@ -39,5 +39,5 @@
 
 👉 Với trường hợp này, **Netlify drag & drop** là nhanh nhất: chỉ cần 1 file HTML duy nhất, kéo thả xong có link ngay.
 
-Bạn muốn mình viết sẵn file `README.md` hướng dẫn chi tiết để bạn chỉ cần copy/paste lên GitHub deploy không?
+By CHATGPT
 

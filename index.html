@@ -21,6 +21,7 @@
       position: relative;
     }
 
+
     button {
       background: #ffcc00;
       color: #333;
@@ -33,31 +34,36 @@
       transition: transform 0.2s;
     }
 
+
     button:hover {
       transform: scale(1.05);
     }
 
-    .ufo {
-      width: 80px;
-      height: 80px;
-      background: url('https://cdn-icons-png.flaticon.com/512/482/482316.png') no-repeat center/contain;
+
+    .loading-icon {
+      width: 100px;
+      height: 100px;
+      background: url('https://cdn-icons-png.flaticon.com/512/4712/4712035.png') no-repeat center/contain;
       position: absolute;
-      top: -120px;
+      top: -140px;
       left: 50%;
       transform: translateX(-50%);
-      animation: spin 1s linear infinite;
+      animation: bounce 1s infinite alternate;
       display: none;
     }
 
-    @keyframes spin {
-      from { transform: translateX(-50%) rotate(0deg); }
-      to { transform: translateX(-50%) rotate(360deg); }
+
+    @keyframes bounce {
+      from { transform: translateX(-50%) translateY(0); }
+      to { transform: translateX(-50%) translateY(-20px); }
     }
+
 
     .result {
       margin-top: 20px;
       font-size: 1.5rem;
     }
+
 
     .food-icon {
       width: 100px;

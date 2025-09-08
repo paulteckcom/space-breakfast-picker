@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Breakfast Picker</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    button {
+      background: #ffcc00;
+      color: #333;
+      border: none;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .ufo {
+      width: 80px;
+      height: 80px;
+      background: url('https://cdn-icons-png.flaticon.com/512/482/482316.png') no-repeat center/contain;
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+
+    .food-icon {
+      width: 100px;
+      height: 100px;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="ufo" id="ufo"></div>
+    <button id="pickBtn">🚀 Pick Breakfast</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const foods = [
+      { name: "Pancakes", img: "https://cdn-icons-png.flaticon.com/512/1046/1046784.png" },
+      { name: "Waffles", img: "https://cdn-icons-png.flaticon.com/512/1046/1046785.png" },
+      { name: "Cereal", img: "https://cdn-icons-png.flaticon.com/512/1046/1046782.png" },
+      { name: "Toast", img: "https://cdn-icons-png.flaticon.com/512/1046/1046781.png" },
+      { name: "Eggs", img: "https://cdn-icons-png.flaticon.com/512/1046/1046786.png" },
+      { name: "Bacon", img: "https://cdn-icons-png.flaticon.com/512/1046/1046780.png" },
+      { name: "Donut", img: "https://cdn-icons-png.flaticon.com/512/1046/1046787.png" },
+      { name: "Croissant", img: "https://cdn-icons-png.flaticon.com/512/1046/1046783.png" },
+      { name: "Fruit Bowl", img: "https://cdn-icons-png.flaticon.com/512/1046/1046788.png" },
+      { name: "Smoothie", img: "https://cdn-icons-png.flaticon.com/512/1046/1046789.png" }
+    ];
+
+    const pickBtn = document.getElementById("pickBtn");
+    const result = document.getElementById("result");
+    const ufo = document.getElementById("ufo");
+
+    pickBtn.addEventListener("click", () => {
+      result.innerHTML = "";
+      ufo.style.display = "block";
+
+      setTimeout(() => {
+        ufo.style.display = "none";
+        const food = foods[Math.floor(Math.random() * foods.length)];
+        result.innerHTML = `<img class="food-icon" src="${food.img}" alt="${food.name}"><div>${food.name}</div>`;
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
